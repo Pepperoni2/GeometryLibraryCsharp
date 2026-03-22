@@ -1,8 +1,5 @@
 using System.Numerics;
-using System.Runtime.CompilerServices;
 namespace GeometryLibrary;
-
-
 
 public class Tetrahedron : Shape
 {
@@ -55,7 +52,7 @@ public class Tetrahedron : Shape
     
 
     // Calculate Area of Tetrahedron
-    public float SurfaceArea()
+    public override float SurfaceArea()
     {
         static float CalculateFaceArea(Vector3 a, Vector3 b, Vector3 c)
         {
