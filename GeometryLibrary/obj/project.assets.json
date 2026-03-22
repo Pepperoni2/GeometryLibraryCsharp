@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\flori\\Desktop\\Assignment 2\\GeometryLibrary\\GeometryLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\flori\\Desktop\\GeometryLibraryCsharp\\GeometryLibrary\\GeometryLibrary.csproj",
       "projectName": "GeometryLibrary",
-      "projectPath": "C:\\Users\\flori\\Desktop\\Assignment 2\\GeometryLibrary\\GeometryLibrary.csproj",
+      "projectPath": "C:\\Users\\flori\\Desktop\\GeometryLibraryCsharp\\GeometryLibrary\\GeometryLibrary.csproj",
       "packagesPath": "C:\\Users\\flori\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\flori\\Desktop\\Assignment 2\\GeometryLibrary\\obj\\",
+      "outputPath": "C:\\Users\\flori\\Desktop\\GeometryLibraryCsharp\\GeometryLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

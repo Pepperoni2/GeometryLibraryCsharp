@@ -1,16 +1,49 @@
 using System.Numerics;
-
+using System.Runtime.CompilerServices;
 namespace GeometryLibrary;
+
+
 
 public class Tetrahedron : Shape
 {
     // Property
     private Vector3[] _vertices;
-
+    private static readonly Random _random = new();
     // Constructor
-    public Tetrahedron(Vector3 vertex1, Vector3 vertex2, Vector3 vertex3, Vector3 vertex4)
+    public Tetrahedron()
     {
-        _vertices = new Vector3[] { vertex1, vertex2, vertex3, vertex4 };
+        static Vector3 GenerateRandomPoint()
+        {
+            var x = _random.NextSingle() * 10f;
+            var y = _random.NextSingle() * 10f;
+            var z = _random.NextSingle() * 10f;
+            return new Vector3(x, y, z);
+        }
+        _vertices = new Vector3[4];
+        float volume; 
+        do
+        {
+            for (int i = 0; i < _vertices.Length; i++)
+            {
+                _vertices[i] = GenerateRandomPoint();
+            }
+
+            var u = _vertices[1] - _vertices[0];
+            var v = _vertices[2] - _vertices[0];
+            var w = _vertices[3] - _vertices[0];
+
+            Vector3 crossProduct_uw = Vector3.Cross(v, w);
+            // Math.Abs to make volume always positive
+            volume = Math.Abs(Vector3.Dot(u, crossProduct_uw)) / 6f;
+            
+        } while (volume < 0.0001f); // if volume volume is "zero" shape is flat => repeat
+    }
+
+    // The Copy Constructor
+    public Tetrahedron(Tetrahedron original)
+    {
+        _vertices = new Vector3[4];
+        Array.Copy(original._vertices, this._vertices, 4);
     }
 
     // Calculate Centroid method
@@ -20,8 +53,12 @@ public class Tetrahedron : Shape
         return sumOfVectors / 4f;
     }
     
-    private static float CalculateFaceArea(Vector3 a, Vector3 b, Vector3 c)
+
+    // Calculate Area of Tetrahedron
+    public float SurfaceArea()
     {
+        static float CalculateFaceArea(Vector3 a, Vector3 b, Vector3 c)
+        {
             // Find two edges 
             // Edge 1
             Vector3 edge1 = b - a;
@@ -32,11 +69,8 @@ public class Tetrahedron : Shape
             Vector3 crossProduct = Vector3.Cross(edge1, edge2);
 
             return crossProduct.Length() / 2f;
-    
-    } 
-    // Calculate Area of Tetrahedron
-    public float SurfaceArea()
-    {
+        } 
+
         return CalculateFaceArea(_vertices[0], _vertices[1], _vertices[2]) + 
                CalculateFaceArea(_vertices[0], _vertices[1], _vertices[3]) +
                CalculateFaceArea(_vertices[0], _vertices[2], _vertices[3]) +
