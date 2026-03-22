@@ -33,7 +33,7 @@ public class Tetrahedron : Shape
             // Math.Abs to make volume always positive
             volume = Math.Abs(Vector3.Dot(u, crossProduct_uw)) / 6f;
             
-        } while (volume < 0.0001f); // if volume volume is "zero" shape is flat => repeat
+        } while (volume < 0.0001f); // if volume volume is "zero": shape is flat => repeat
     }
 
     // The Copy Constructor
@@ -44,7 +44,7 @@ public class Tetrahedron : Shape
     }
 
     // Calculate Centroid method
-    public Vector3 Centroid()
+    public override Vector3 Centroid()
     {
         Vector3 sumOfVectors = _vertices[0] + _vertices[1] + _vertices[2] + _vertices[3];
         return sumOfVectors / 4f;
@@ -106,5 +106,11 @@ public class Tetrahedron : Shape
               _vertices[1].GetHashCode() + 
               _vertices[2].GetHashCode() + 
               _vertices[3].GetHashCode();
+    }
+
+    // Volume
+    public override float Volume()
+    {
+        throw new NotImplementedException();
     }
 }
