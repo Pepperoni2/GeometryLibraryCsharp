@@ -1,0 +1,12 @@
+@startuml
+class Tetrahedron {
+    + Tetrahedron()
+    + Tetrahedron(original:Tetrahedron)
+    + <<override>> Centroid() : Vector3
+    + <<override>> SurfaceArea() : float
+    + <<override>> Equals(obj:object?) : bool
+    + <<override>> GetHashCode() : int
+    + <<override>> Volume() : float
+}
+Shape <|-- Tetrahedron
+@enduml

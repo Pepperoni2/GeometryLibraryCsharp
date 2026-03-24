@@ -1,0 +1,14 @@
+@startuml
+!include .\\GeometricObjectComputation\Program.puml
+!include .\\GeometryLibrary\CompositeShape.puml
+!include .\\GeometryLibrary\Cuboid.puml
+!include .\\GeometryLibrary\Cylinder.puml
+!include .\\GeometryLibrary\Shape.puml
+!include .\\GeometryLibrary\Tetrahedron.puml
+!include .\\GeometricObjectComputation\obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.puml
+!include .\\GeometricObjectComputation\obj\Debug\net10.0\GeometricObjectComputation.AssemblyInfo.puml
+!include .\\GeometricObjectComputation\obj\Debug\net10.0\GeometricObjectComputation.GlobalUsings.g.puml
+!include .\\GeometryLibrary\obj\Debug\net10.0\.NETCoreApp,Version=v10.0.AssemblyAttributes.puml
+!include .\\GeometryLibrary\obj\Debug\net10.0\GeometryLibrary.AssemblyInfo.puml
+!include .\\GeometryLibrary\obj\Debug\net10.0\GeometryLibrary.GlobalUsings.g.puml
+@enduml

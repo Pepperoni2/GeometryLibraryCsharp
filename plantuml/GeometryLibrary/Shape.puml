@@ -1,0 +1,11 @@
+@startuml
+abstract class Shape {
+    + {abstract} SurfaceArea() : float
+    + {abstract} Centroid() : Vector3
+    + {abstract} Volume() : float
+    + CompareTo(other:Shape?) : int
+}
+class "IComparable`1"<T> {
+}
+"IComparable`1" "<Shape>" <|-- Shape
+@enduml

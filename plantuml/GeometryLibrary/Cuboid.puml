@@ -1,0 +1,13 @@
+@startuml
+class Cuboid {
+    + Cuboid()
+    + Cuboid(v0:Vector3, v1:Vector3, v2:Vector3, v3:Vector3, v4:Vector3, v5:Vector3, v6:Vector3, v7:Vector3)
+    + Cuboid(original:Cuboid)
+    + <<override>> SurfaceArea() : float
+    + <<override>> Centroid() : Vector3
+    + <<override>> Volume() : float
+    + <<override>> Equals(obj:object?) : bool
+    + <<override>> GetHashCode() : int
+}
+Shape <|-- Cuboid
+@enduml
