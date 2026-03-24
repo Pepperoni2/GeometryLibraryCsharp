@@ -111,6 +111,18 @@ public class Tetrahedron : Shape
     // Volume
     public override float Volume()
     {
-        throw new NotImplementedException();
+        // Find three vectors from _vertices[0]
+        Vector3 a = _vertices[1] - _vertices[0];
+        Vector3 b = _vertices[2] - _vertices[0];
+        Vector3 c = _vertices[3] - _vertices[0];
+
+        // Calculate the Cross Product of b and c
+        Vector3 crossProduct = Vector3.Cross(b, c);
+
+        // Calculate the Dot Product of a and the resulting Cross Product
+        float scalarTripleProduct = Vector3.Dot(a, crossProduct);
+
+        // The volume is the absolute value divided by 6
+        return MathF.Abs(scalarTripleProduct) / 6f;
     }
 }
