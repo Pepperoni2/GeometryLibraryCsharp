@@ -35,6 +35,31 @@ public class Cuboid : Shape
 
     }
 
+    // Parameterized Constructor
+    public Cuboid(Vector3 v0, Vector3 v1, Vector3 v2, Vector3 v3, 
+                  Vector3 v4, Vector3 v5, Vector3 v6, Vector3 v7)
+    {
+        // Instantiate the array so it has space for 8 points
+        _vertices = new Vector3[8];
+
+        // Slot each parameter into the array
+        _vertices[0] = v0;
+        _vertices[1] = v1;
+        _vertices[2] = v2;
+        _vertices[3] = v3;
+        _vertices[4] = v4;
+        _vertices[5] = v5;
+        _vertices[6] = v6;
+        _vertices[7] = v7;
+    }
+
+    // Copy constructor
+    public Cuboid(Cuboid original)
+    {
+        _vertices = new Vector3[8];
+        Array.Copy(original._vertices, this._vertices, 8);
+    }
+
     public override float SurfaceArea()
     {
         var L = Vector3.Distance(_vertices[0], _vertices[1]);
