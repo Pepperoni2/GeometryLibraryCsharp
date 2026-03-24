@@ -33,6 +33,28 @@ public class CompositeShape : Shape
         }
     }
 
+    // Helper constructor to create a composite shape from an existing array
+    private CompositeShape(Shape[] shapes)
+    {
+        _shapes = shapes;
+    }
+
+    // Overload + to add a Shape to an existing CompositeShape
+    public static CompositeShape operator +(CompositeShape cs, Shape s)
+    {
+        Shape[] newArray = new Shape[cs._shapes.Length + 1];
+        Array.Copy(cs._shapes, newArray, cs._shapes.Length);
+        newArray[newArray.Length - 1] = s;
+        return new CompositeShape(newArray);
+    }
+
+    // Method to trigger the sorting logic
+    public void SortShapes()
+    {
+        // Because Shape implements IComparable, Array.Sort knows exactly what to do!
+        Array.Sort(_shapes);
+    }
+
     public Shape this[int index]
     {
         get { return _shapes[index];  }
