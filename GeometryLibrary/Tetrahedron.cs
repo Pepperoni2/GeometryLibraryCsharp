@@ -6,7 +6,8 @@ public class Tetrahedron : Shape
     // Property
     private Vector3[] _vertices;
     private static readonly Random _random = new();
-    // Constructor
+    
+    // Default Constructor
     public Tetrahedron()
     {
         static Vector3 GenerateRandomPoint()
@@ -34,6 +35,22 @@ public class Tetrahedron : Shape
             volume = Math.Abs(Vector3.Dot(u, crossProduct_uw)) / 6f;
             
         } while (volume < 0.0001f); // if volume volume is "zero": shape is flat => repeat
+    }
+
+    // Parameterized Constructor
+    public Tetrahedron(Vector3 vertex1, Vector3 vertex2, Vector3 vertex3, Vector3 vertex4)
+    {
+        _vertices = new Vector3[4];
+        _vertices[0] = vertex1;
+        _vertices[1] = vertex2;
+        _vertices[2] = vertex3;
+        _vertices[3] = vertex4;
+
+        // VALIDATION: Check if the volume is effectively zero
+        if (this.Volume() < 0.0001f)
+        {
+            throw new ArgumentException("The provided vertices are coplanar (flat) and do not form a valid 3D tetrahedron.");
+        }
     }
 
     // The Copy Constructor

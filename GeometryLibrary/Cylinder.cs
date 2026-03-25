@@ -33,6 +33,12 @@ public class Cylinder : Shape
         _vertices[1] = vertex2;
 
         _radius = radius;
+
+        // VALIDATION Check
+        if (radius <= 0f || Vector3.Distance(vertex1, vertex2) < 0.0001f)
+        {
+            throw new ArgumentException("A cylinder must have a positive radius and a height greater than zero.");
+        }
     }
 
     // The Copy Constructor

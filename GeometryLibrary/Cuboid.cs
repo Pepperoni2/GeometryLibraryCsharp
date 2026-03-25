@@ -51,6 +51,12 @@ public class Cuboid : Shape
         _vertices[5] = v5;
         _vertices[6] = v6;
         _vertices[7] = v7;
+
+        // VALIDATION Check
+        if (this.Volume() < 0.0001f)
+        {
+            throw new ArgumentException("The provided vertices are coplanar (flat) and do not form a valid 3D Cuboid.");
+        }
     }
 
     // Copy constructor

@@ -1,6 +1,7 @@
 @startuml
 class Tetrahedron {
     + Tetrahedron()
+    + Tetrahedron(vertex1:Vector3, vertex2:Vector3, vertex3:Vector3, vertex4:Vector3)
     + Tetrahedron(original:Tetrahedron)
     + <<override>> Centroid() : Vector3
     + <<override>> SurfaceArea() : float
