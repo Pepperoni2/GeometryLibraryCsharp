@@ -24,6 +24,9 @@ Calculations in 3D space are handled using the `System.Numerics.Vector3` struct.
 
 *(Below is the visual representation of the class hierarchy, showing how the primitive objects and composite containers inherit from the abstract Shape base).*
 
+### Class relationship
+![GeometryLibrary class relationship](../images/ClassRelationship.png)
+
 #### Abstract ```Shape``` Class
 ![Shape Class Diagram](../images/Shape.png)
 #### ```Tetrahedron``` Class 

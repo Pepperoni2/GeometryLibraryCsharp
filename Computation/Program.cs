@@ -6,7 +6,7 @@ class Program
     static void Main()
     {
         Console.WriteLine("--- 1. CREATING BASIC OBJECTS ---");
-        // Using our default constructors to make random shapes
+        // Using default constructors to make random shapes
         Cuboid cube1 = new Cuboid();
         Cylinder cyl1 = new Cylinder();
         Tetrahedron tet1 = new Tetrahedron();
@@ -17,10 +17,10 @@ class Program
 
         Console.WriteLine("--- 2. ADDING SHAPES WITH OVERLOADED + OPERATOR ---");
         
-        // Start with an empty CompositeShape
+        // Empty CompositeShape
         CompositeShape compShape = new CompositeShape(0); 
         
-        // Now use our legal (CompositeShape + Shape) operator!
+        // (CompositeShape + Shape) operator
         compShape = compShape + cube1; 
         compShape = compShape + cyl1; 
         compShape = compShape + tet1; 
@@ -32,7 +32,7 @@ class Program
         Console.WriteLine("Sorting shapes by Surface Area (via IComparable)...");
         compShape.SortShapes();
         
-        // PROOF: Loop through the composite shape using the [] indexer to prove it sorted!
+        // Loop through the composite shape using the [] indexer
         Console.WriteLine("Sort complete. Here is the new order:");
         for (int i = 0; i < 3; i++)
         {
@@ -42,7 +42,7 @@ class Program
         Console.WriteLine();
 
         Console.WriteLine("--- 4. ISIN, INDEXER [], AND COPY CONSTRUCTOR ---");
-        // Find the cuboid we created earlier
+        // Find the cuboid
         int index = compShape.IsIn(cube1);
         
         if (index != -1)
@@ -52,14 +52,14 @@ class Program
             // Access it using the overloaded [] indexer
             Shape foundShape = compShape[index];
 
-            // Because 'foundShape' is stored as a generic Shape, 
-            // we cast it back to a Cuboid to use the specific copy constructor.
+            // foundShape is stored as a generic Shape, 
+            // cast back to a Cuboid to use the specific copy constructor.
             if (foundShape is Cuboid originalCuboid)
             {
                 Cuboid clonedCube = new Cuboid(originalCuboid);
                 Console.WriteLine("Successfully created a deep copy of the Cuboid using the Copy Constructor!");
                 
-                // Prove it's a clone by using our overloaded == operator
+                // Prove using overloaded == operator
                 bool isExactMatch = (originalCuboid == clonedCube);
                 Console.WriteLine($"Does the clone perfectly match the original? {isExactMatch}");
             }
@@ -69,6 +69,5 @@ class Program
             Console.WriteLine("Shape not found!");
         }
         
-        Console.WriteLine("\n*** GEOMETRY PROJECT COMPLETE! ***");
     }
 }

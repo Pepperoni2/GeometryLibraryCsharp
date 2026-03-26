@@ -51,7 +51,6 @@ public class CompositeShape : Shape
     // Method to trigger the sorting logic
     public void SortShapes()
     {
-        // Because Shape implements IComparable, Array.Sort knows exactly what to do!
         Array.Sort(_shapes);
     }
 

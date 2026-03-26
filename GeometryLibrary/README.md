@@ -17,7 +17,7 @@ To run this project, you will need the .NET SDK installed on your machine.
 ### Installation
 1. Clone the repository
    ```sh
-   git clone [https://github.com/your_username/GeometryLibraryCsharp.git](https://github.com/your_username/GeometryLibraryCsharp.git)
+   git clone https://github.com/Pepperoni2/GeometryLibraryCsharp.git
 2. Navigate to the project directory
    ```sh
    cd GeometryLibraryCsharp
@@ -44,7 +44,7 @@ Console.WriteLine($"Total Volume: {composite.Volume()}");
 ```
 To run the demonstration program included in this repository:
 ```sh
-cd GeometricObjectComputation
+cd Computation
 dotnet run
 ```
 ## Roadmap
